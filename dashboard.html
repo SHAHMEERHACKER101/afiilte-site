@@ -18,6 +18,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="dashboard-enhanced.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -32,7 +33,7 @@
                 <a href="index.html#tools" class="nav-link">Tools</a>
                 <a href="blog.html" class="nav-link">Blog</a>
                 <a href="#dashboard" class="nav-link">Dashboard</a>
-                <a href="index.html#about" class="nav-link">About</a>
+                <a href="about.html" class="nav-link">About</a>
                 <a href="index.html#contact" class="nav-link">Contact</a>
             </div>
             <div class="nav-toggle" id="navToggle">
@@ -227,6 +228,51 @@
                 </div>
             </div>
 
+            <!-- Payment & Withdrawal Section -->
+            <div class="payment-section">
+                <h3 class="section-title">Payment & Withdrawals</h3>
+                <div class="payment-overview">
+                    <div class="payment-card">
+                        <div class="payment-icon">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <div class="payment-info">
+                            <div class="payment-balance">$<span id="availableBalance">0</span></div>
+                            <div class="payment-label">Available Balance</div>
+                            <div class="minimum-withdrawal">Minimum withdrawal: $50</div>
+                        </div>
+                        <div class="payment-actions">
+                            <button id="paymentSettingsBtn" class="payment-action-btn">
+                                <i class="fas fa-cog"></i>
+                                Payment Settings
+                            </button>
+                            <button id="requestWithdrawalBtn" class="payment-action-btn withdrawal-btn" disabled>
+                                <i class="fas fa-money-bill-wave"></i>
+                                Request Withdrawal
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="withdrawal-history">
+                    <h4>Recent Withdrawal Requests</h4>
+                    <div class="withdrawal-item">
+                        <div class="withdrawal-status">
+                            <span class="status-pending">⏳ Processing</span>
+                        </div>
+                        <div class="withdrawal-details">
+                            <div class="withdrawal-amount">$45.00</div>
+                            <div class="withdrawal-date">Requested 3 days ago</div>
+                            <div class="withdrawal-method">Bank Transfer</div>
+                        </div>
+                    </div>
+                    
+                    <div class="no-withdrawals" style="display: none;">
+                        <p>No withdrawal requests yet. Reach $50 to request your first payout!</p>
+                    </div>
+                </div>
+            </div>
+
             <!-- Quick Actions -->
             <div class="quick-actions">
                 <h3 class="section-title">Quick Actions</h3>
@@ -251,7 +297,7 @@
                         </div>
                     </a>
 
-                    <a href="https://www.clickfunnels.com/signup-flow?aff=5da28d74b7e6ee8e5afc46607da4b2b9315e162bab5454de8c0eabb6a26f3fb1" class="action-card" target="_blank">
+                    <a href="https://www.clickfunnels.com/signup-flow?aff=5da28d74b7e6ee8e5afc46607da4b2b9315e162bab5454de8c0abb6a26f3fb1" class="action-card" target="_blank">
                         <div class="action-icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
@@ -322,6 +368,6 @@
     
     <!-- Custom JavaScript -->
     <script src="script.js"></script>
-    <script src="dashboard.js"></script>
+    <script src="dashboard-enhanced.js"></script>
 </body>
 </html>
