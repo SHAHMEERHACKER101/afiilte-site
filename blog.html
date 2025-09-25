@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Latest Tool Reviews & Business Growth Strategies | AffiliateForge</title>
+    <meta name="description" content="Stay updated with the latest tool reviews, comparisons, and business growth strategies. Expert insights on Systeme.io, ClickFunnels, InVideo, and more.">
+    <meta name="keywords" content="business tools, tool reviews, affiliate marketing, funnel builders, online business, growth strategies">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="AffiliateForge Blog - Tool Reviews & Growth Strategies">
+    <meta property="og:description" content="Expert insights on the best business tools and growth strategies for online entrepreneurs">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="blog.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "AffiliateForge Blog",
+      "description": "Latest insights on business tools, affiliate marketing, and online growth strategies",
+      "url": "",
+      "publisher": {
+        "@type": "Organization",
+        "name": "AffiliateForge"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">📝</span>
+                <span class="logo-text">Blog</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#tools" class="nav-link">Tools</a>
+                <a href="#blog" class="nav-link">Blog</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Container -->
+    <div class="blog-container">
+        <div class="container">
+            <!-- Header -->
+            <div class="blog-header">
+                <h1 class="blog-title">AffiliateForge Blog</h1>
+                <p class="blog-subtitle">Expert insights, detailed reviews, and practical guides to help you choose the right tools for your business success.</p>
+                
+                <!-- Create Post Button -->
+                <div class="header-actions">
+                    <button id="createPostBtn" class="create-post-btn">
+                        <i class="fas fa-plus"></i>
+                        Create New Post
+                    </button>
+                </div>
+            </div>
+
+            <!-- Blog Posts Grid -->
+            <div class="blog-posts-grid" id="blogPostsGrid">
+                <!-- Default posts will be loaded here -->
+            </div>
+
+            <!-- Categories Section -->
+            <div class="categories-section">
+                <h2 class="section-title">Browse by Category</h2>
+                <div class="categories-grid">
+                    <div class="category-card" data-category="tool-reviews">
+                        <div class="category-icon">🔧</div>
+                        <div class="category-name">Tool Reviews</div>
+                        <div class="category-description">In-depth analysis</div>
+                        <div class="category-count" id="toolReviewsCount">0 posts</div>
+                    </div>
+                    <div class="category-card" data-category="comparisons">
+                        <div class="category-icon">⚖️</div>
+                        <div class="category-name">Comparisons</div>
+                        <div class="category-description">Side-by-side analysis</div>
+                        <div class="category-count" id="comparisonsCount">0 posts</div>
+                    </div>
+                    <div class="category-card" data-category="growth-tips">
+                        <div class="category-icon">🚀</div>
+                        <div class="category-name">Growth Tips</div>
+                        <div class="category-description">Business strategies</div>
+                        <div class="category-count" id="growthTipsCount">0 posts</div>
+                    </div>
+                    <div class="category-card" data-category="monetization">
+                        <div class="category-icon">💰</div>
+                        <div class="category-name">Monetization</div>
+                        <div class="category-description">Revenue strategies</div>
+                        <div class="category-count" id="monetizationCount">0 posts</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEO Tips Section -->
+            <div class="seo-tips-section">
+                <h2 class="section-title">SEO Writing Tips</h2>
+                <div class="seo-tips-grid">
+                    <div class="seo-tip-card">
+                        <div class="seo-tip-icon">🎯</div>
+                        <h3 class="seo-tip-title">Keyword Research</h3>
+                        <p class="seo-tip-description">Use tools like Google Keyword Planner, Ahrefs, or SEMrush to find relevant keywords with good search volume and low competition.</p>
+                    </div>
+                    <div class="seo-tip-card">
+                        <div class="seo-tip-icon">📝</div>
+                        <h3 class="seo-tip-title">Content Structure</h3>
+                        <p class="seo-tip-description">Use clear headings (H1, H2, H3), bullet points, and short paragraphs. Include your main keyword in the title and first paragraph.</p>
+                    </div>
+                    <div class="seo-tip-card">
+                        <div class="seo-tip-icon">🔗</div>
+                        <h3 class="seo-tip-title">Internal Linking</h3>
+                        <p class="seo-tip-description">Link to other relevant posts on your blog and to affiliate products naturally within your content to improve user experience.</p>
+                    </div>
+                    <div class="seo-tip-card">
+                        <div class="seo-tip-icon">📱</div>
+                        <h3 class="seo-tip-title">Mobile Optimization</h3>
+                        <p class="seo-tip-description">Ensure your content is mobile-friendly with responsive design, fast loading times, and easy-to-read fonts.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Newsletter Signup -->
+            <div class="newsletter-section">
+                <div class="newsletter-card">
+                    <h3 class="newsletter-title">Stay Updated</h3>
+                    <p class="newsletter-description">
+                        Get the latest tool reviews and business insights delivered to your inbox weekly.
+                    </p>
+                    <div class="newsletter-form">
+                        <input
+                            type="email"
+                            placeholder="Enter your email"
+                            class="newsletter-input"
+                            id="newsletterEmail"
+                        />
+                        <button class="newsletter-btn" id="subscribeBtn">
+                            Subscribe
+                        </button>
+                    </div>
+                    <div class="newsletter-note">
+                        No spam, unsubscribe anytime
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Post Modal -->
+    <div id="createPostModal" class="modal">
+        <div class="modal-content create-post-modal">
+            <div class="modal-header">
+                <h2>Create New Blog Post</h2>
+                <span class="close" id="closeCreateModal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="createPostForm" class="create-post-form">
+                    <div class="form-group">
+                        <label for="postTitle">Post Title*</label>
+                        <input type="text" id="postTitle" name="title" required class="form-input" placeholder="Enter an engaging title...">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="postCategory">Category*</label>
+                            <select id="postCategory" name="category" required class="form-select">
+                                <option value="">Select a category</option>
+                                <option value="tool-reviews">Tool Reviews</option>
+                                <option value="comparisons">Comparisons</option>
+                                <option value="growth-tips">Growth Tips</option>
+                                <option value="monetization">Monetization</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="postReadTime">Read Time</label>
+                            <input type="text" id="postReadTime" name="readTime" class="form-input" placeholder="e.g., 5 min read" value="5 min read">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="postDescription">Short Description*</label>
+                        <textarea id="postDescription" name="description" required class="form-textarea" rows="3" placeholder="Write a compelling description that summarizes your post..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="postImage">Featured Image URL</label>
+                        <input type="url" id="postImage" name="image" class="form-input" placeholder="https://example.com/image.jpg">
+                        <div class="form-help">Use high-quality images from Unsplash, Pexels, or your own uploads</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="postKeywords">SEO Keywords</label>
+                        <input type="text" id="postKeywords" name="keywords" class="form-input" placeholder="keyword1, keyword2, keyword3">
+                        <div class="form-help">Separate keywords with commas for better SEO</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="postContent">Content*</label>
+                        <textarea id="postContent" name="content" required class="form-textarea content-textarea" rows="15" placeholder="Write your blog post content here...
+
+Tips for great content:
+• Start with a compelling hook
+• Use headings to structure your content
+• Include actionable insights
+• Add relevant affiliate links naturally
+• End with a clear call-to-action"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="cancelPost">Cancel</button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Publish Post
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-icon">📝</span>
+                        <span class="logo-text">AffiliateForge</span>
+                    </div>
+                    <p class="footer-description">Your source for expert tool reviews and business growth strategies.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" data-category="tool-reviews">Tool Reviews</a></li>
+                        <li><a href="#" data-category="comparisons">Comparisons</a></li>
+                        <li><a href="#" data-category="growth-tips">Growth Tips</a></li>
+                        <li><a href="#" data-category="monetization">Monetization</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#tools">Tools</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 AffiliateForge Blog. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+    
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+    <script src="blog.js"></script>
+</body>
+</html>

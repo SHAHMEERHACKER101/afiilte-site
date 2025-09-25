@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiliate Dashboard - Track Your Performance | AffiliateForge</title>
+    <meta name="description" content="Monitor your affiliate performance with real-time analytics, track clicks, views, and earnings from your AffiliateForge referrals.">
+    <meta name="keywords" content="affiliate dashboard, performance tracking, earnings, analytics, affiliate marketing">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">📊</span>
+                <span class="logo-text">Dashboard</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#tools" class="nav-link">Tools</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="#dashboard" class="nav-link">Dashboard</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-container">
+        <div class="container">
+            <!-- Header -->
+            <div class="dashboard-header">
+                <h1 class="dashboard-title">Affiliate Dashboard</h1>
+                <p class="dashboard-subtitle">Track your performance and maximize your earnings</p>
+            </div>
+
+            <!-- Affiliate Link CTA -->
+            <div class="affiliate-cta-section">
+                <div class="cta-card">
+                    <div class="cta-content">
+                        <h2 class="cta-title">🚀 Earn $100 Per Sale – Promote This Link</h2>
+                        <p class="cta-description">
+                            High-converting affiliate offer with proven results. Join thousands of successful affiliates.
+                        </p>
+                        <div class="affiliate-link-container">
+                            <input type="text" 
+                                   id="affiliateLink" 
+                                   class="affiliate-link-input" 
+                                   value="https://wwp.ailony.com/redirect-zone/0fcf5c0f" 
+                                   readonly>
+                            <button id="copyLinkBtn" class="copy-btn">
+                                <i class="fas fa-copy"></i>
+                                Copy
+                            </button>
+                        </div>
+                        <div class="cta-actions">
+                            <a href="https://wwp.ailony.com/redirect-zone/0fcf5c0f" 
+                               class="promote-link-btn" 
+                               onclick="trackClick('affiliate-main')">
+                                🎯 Visit Affiliate Link
+                            </a>
+                            <a href="https://facebook.com/sharer/sharer.php?u=https://wwp.ailony.com/redirect-zone/0fcf5c0f" 
+                               target="_blank" 
+                               class="share-btn facebook">
+                                <i class="fab fa-facebook"></i> Share on Facebook
+                            </a>
+                            <a href="https://twitter.com/intent/tweet?url=https://wwp.ailony.com/redirect-zone/0fcf5c0f&text=Check out this amazing opportunity!" 
+                               target="_blank" 
+                               class="share-btn twitter">
+                                <i class="fab fa-twitter"></i> Share on Twitter
+                            </a>
+                        </div>
+                        <p class="cta-note">💡 Tip: Share this link on social media, blogs, or email to start earning!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon views-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" id="totalViews">0</div>
+                        <div class="stat-label">Total Views</div>
+                        <div class="stat-change positive">+0 today</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon clicks-icon">
+                        <i class="fas fa-mouse-pointer"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" id="totalClicks">0</div>
+                        <div class="stat-label">Total Clicks</div>
+                        <div class="stat-change positive">+0 today</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon earnings-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" id="totalEarnings">$0</div>
+                        <div class="stat-label">Total Earnings</div>
+                        <div class="stat-change positive">+$0 today</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon conversion-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" id="conversionRate">0.0%</div>
+                        <div class="stat-label">Conversion Rate</div>
+                        <div class="stat-change positive">+0% this week</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-section">
+                <div class="chart-card">
+                    <h3 class="chart-title">Performance Overview</h3>
+                    <div class="chart-container">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3 class="chart-title">Earnings Growth</h3>
+                    <div class="chart-container">
+                        <canvas id="earningsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Performing Tools -->
+            <div class="performance-section">
+                <h3 class="section-title">Top Performing Affiliate Links</h3>
+                <div class="performance-list">
+                    <div class="performance-item">
+                        <div class="performance-info">
+                            <div class="performance-icon systemeio-gradient">
+                                <i class="fas fa-funnel-dollar"></i>
+                            </div>
+                            <div class="performance-details">
+                                <div class="performance-name">Systeme.io</div>
+                                <div class="performance-description">All-in-one marketing platform</div>
+                            </div>
+                        </div>
+                        <div class="performance-stats">
+                            <div class="performance-clicks">0 clicks</div>
+                            <div class="performance-rate">0% CTR</div>
+                        </div>
+                    </div>
+
+                    <div class="performance-item">
+                        <div class="performance-info">
+                            <div class="performance-icon clickfunnels-gradient">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="performance-details">
+                                <div class="performance-name">ClickFunnels</div>
+                                <div class="performance-description">Professional funnel builder</div>
+                            </div>
+                        </div>
+                        <div class="performance-stats">
+                            <div class="performance-clicks">0 clicks</div>
+                            <div class="performance-rate">0% CTR</div>
+                        </div>
+                    </div>
+
+                    <div class="performance-item">
+                        <div class="performance-info">
+                            <div class="performance-icon invideo-gradient">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <div class="performance-details">
+                                <div class="performance-name">InVideo</div>
+                                <div class="performance-description">AI video creation platform</div>
+                            </div>
+                        </div>
+                        <div class="performance-stats">
+                            <div class="performance-clicks">0 clicks</div>
+                            <div class="performance-rate">0% CTR</div>
+                        </div>
+                    </div>
+
+                    <div class="performance-item featured-item">
+                        <div class="performance-info">
+                            <div class="performance-icon affiliate-gradient">
+                                <i class="fas fa-link"></i>
+                            </div>
+                            <div class="performance-details">
+                                <div class="performance-name">Main Affiliate Link</div>
+                                <div class="performance-description">High-converting $100/sale offer</div>
+                            </div>
+                        </div>
+                        <div class="performance-stats">
+                            <div class="performance-clicks">0 clicks</div>
+                            <div class="performance-rate">0% CTR</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <h3 class="section-title">Quick Actions</h3>
+                <div class="actions-grid">
+                    <a href="blog.html" class="action-card" target="_blank">
+                        <div class="action-icon">
+                            <i class="fas fa-blog"></i>
+                        </div>
+                        <div class="action-content">
+                            <div class="action-title">Read Latest Blog Posts</div>
+                            <div class="action-description">Get insights and tips</div>
+                        </div>
+                    </a>
+
+                    <a href="https://systeme.io/?sa=sa0197089128c8804219c7954377afdb1278b4602d" class="action-card" target="_blank">
+                        <div class="action-icon">
+                            <i class="fas fa-funnel-dollar"></i>
+                        </div>
+                        <div class="action-content">
+                            <div class="action-title">Explore Systeme.io</div>
+                            <div class="action-description">All-in-one platform</div>
+                        </div>
+                    </a>
+
+                    <a href="https://www.clickfunnels.com/signup-flow?aff=5da28d74b7e6ee8e5afc46607da4b2b9315e162bab5454de8c0eabb6a26f3fb1" class="action-card" target="_blank">
+                        <div class="action-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="action-content">
+                            <div class="action-title">Check ClickFunnels</div>
+                            <div class="action-description">Funnel builder tool</div>
+                        </div>
+                    </a>
+
+                    <a href="blog.html" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="action-content">
+                            <div class="action-title">Create Blog Post</div>
+                            <div class="action-description">Share your insights</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-icon">📊</span>
+                        <span class="logo-text">AffiliateForge</span>
+                    </div>
+                    <p class="footer-description">Your trusted partner in affiliate marketing success.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#tools">Tools</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#dashboard">Dashboard</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#help">Help Center</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#privacy">Privacy</a></li>
+                        <li><a href="#terms">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 AffiliateForge Dashboard. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
