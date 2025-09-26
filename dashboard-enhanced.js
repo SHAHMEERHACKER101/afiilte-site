@@ -1,11 +1,16 @@
-// Enhanced Dashboard functionality with time-based progression and payment system
+// Enhanced Dashboard functionality with intelligent progression and payment system
 let dashboardStats = {
     totalViews: 0,
     totalClicks: 0,
     totalEarnings: 0,
     conversionRate: 0,
     firstVisit: null,
-    lastUpdate: null
+    lastUpdate: null,
+    linkCopied: false,
+    firstCopyTime: null,
+    progressionStarted: false,
+    dailyProgressions: [],
+    lastProgressCheck: null
 };
 
 let paymentSettings = {
@@ -100,7 +105,7 @@ function updateDashboardDisplay() {
     document.querySelectorAll('.stats-grid .stat-change')[2].textContent = `+$${todayEarnings} today`;
 }
 
-// Copy affiliate link functionality
+// Copy affiliate link functionality with intelligent progression trigger
 function initializeCopyButton() {
     const copyBtn = document.getElementById('copyLinkBtn');
     const affiliateLink = document.getElementById('affiliateLink');
@@ -109,6 +114,28 @@ function initializeCopyButton() {
         copyBtn.addEventListener('click', async () => {
             try {
                 await navigator.clipboard.writeText(affiliateLink.value);
+                
+                // INTELLIGENT PROGRESSION TRIGGER
+                if (!dashboardStats.linkCopied) {
+                    dashboardStats.linkCopied = true;
+                    dashboardStats.firstCopyTime = Date.now();
+                    dashboardStats.progressionStarted = true;
+                    dashboardStats.lastProgressCheck = Date.now();
+                    
+                    // Initialize daily progression array
+                    dashboardStats.dailyProgressions = [{
+                        date: new Date().toDateString(),
+                        earnings: 0,
+                        views: 1,
+                        clicks: 0
+                    }];
+                    
+                    saveDashboardStats();
+                    startIntelligentProgression();
+                    
+                    // Show success notification
+                    showProgressNotification('🎉 Progression Started! Your earnings will grow from $0 to $1 today, then $1/day up to $45!');
+                }
                 
                 // Visual feedback
                 copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
@@ -124,6 +151,25 @@ function initializeCopyButton() {
                 affiliateLink.select();
                 document.execCommand('copy');
                 
+                // Same progression trigger for fallback
+                if (!dashboardStats.linkCopied) {
+                    dashboardStats.linkCopied = true;
+                    dashboardStats.firstCopyTime = Date.now();
+                    dashboardStats.progressionStarted = true;
+                    dashboardStats.lastProgressCheck = Date.now();
+                    
+                    dashboardStats.dailyProgressions = [{
+                        date: new Date().toDateString(),
+                        earnings: 0,
+                        views: 1,
+                        clicks: 0
+                    }];
+                    
+                    saveDashboardStats();
+                    startIntelligentProgression();
+                    showProgressNotification('🎉 Progression Started! Your earnings will grow from $0 to $1 today, then $1/day up to $45!');
+                }
+                
                 copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
                 copyBtn.classList.add('copied');
                 
@@ -134,6 +180,183 @@ function initializeCopyButton() {
             }
         });
     }
+}
+
+// Start intelligent progression system
+function startIntelligentProgression() {
+    if (!dashboardStats.progressionStarted || !dashboardStats.firstCopyTime) return;
+    
+    console.log('🚀 Starting intelligent progression system...');
+    
+    // Immediate first update
+    updateIntelligentProgression();
+    
+    // Set up regular updates every 30 seconds for real-time feel
+    const progressInterval = setInterval(() => {
+        updateIntelligentProgression();
+        
+        // Stop progression at $45 or after 45 days
+        const daysSinceCopy = Math.floor((Date.now() - dashboardStats.firstCopyTime) / (24 * 60 * 60 * 1000));
+        if (daysSinceCopy >= 45 && dashboardStats.totalEarnings >= 45) {
+            console.log('💰 Progression complete! Reached $45 maximum.');
+            clearInterval(progressInterval);
+        }
+    }, 30000); // Update every 30 seconds
+}
+
+// Enhanced intelligent progression function
+function updateIntelligentProgression() {
+    if (!dashboardStats.firstCopyTime) return;
+    
+    const now = Date.now();
+    const timeSinceCopy = now - dashboardStats.firstCopyTime;
+    const daysSinceCopy = Math.floor(timeSinceCopy / (24 * 60 * 60 * 1000));
+    const hoursSinceCopy = Math.floor(timeSinceCopy / (60 * 60 * 1000));
+    const minutesSinceCopy = Math.floor(timeSinceCopy / (60 * 1000));
+    
+    let newEarnings = 0;
+    let newViews = 0;
+    let newClicks = 0;
+    
+    if (daysSinceCopy === 0) {
+        // FIRST DAY: Progressive increase from $0 to $1 over 24 hours
+        const progressToday = Math.min(hoursSinceCopy / 24, 1);
+        newEarnings = Number((progressToday * 1).toFixed(2));
+        
+        // Add some micro-progression based on minutes for real-time feel
+        const minuteBonus = (minutesSinceCopy % 60) / 60 * 0.01; // Up to 1 cent per minute
+        newEarnings += minuteBonus;
+        newEarnings = Math.min(newEarnings, 1); // Cap at $1 for first day
+        
+        // Views and clicks scale with earnings
+        newViews = Math.max(1, Math.floor(newEarnings * 10) + Math.floor(Math.random() * 3));
+        newClicks = Math.max(0, Math.floor(newEarnings * 7) + Math.floor(Math.random() * 2));
+        
+    } else if (daysSinceCopy <= 45) {
+        // DAYS 1-45: $1 per day progression with intraday growth
+        const completedDays = Math.min(daysSinceCopy, 45);
+        const baseEarnings = completedDays;
+        
+        // Current day progress (if not at max)
+        if (completedDays < 45) {
+            const currentDayHours = hoursSinceCopy - (completedDays * 24);
+            const todayProgress = Math.min(currentDayHours / 24, 1);
+            newEarnings = baseEarnings + todayProgress;
+        } else {
+            newEarnings = 45; // Max cap
+        }
+        
+        // Add realistic micro-fluctuations
+        const microFluctuation = (Math.random() - 0.5) * 0.02; // ±1 cent fluctuation
+        newEarnings += microFluctuation;
+        newEarnings = Math.max(0, Math.min(newEarnings, 45));
+        
+        // Scale views and clicks realistically
+        newViews = Math.max(dashboardStats.totalViews, completedDays * 8 + Math.floor(Math.random() * 5));
+        newClicks = Math.max(dashboardStats.totalClicks, completedDays * 5 + Math.floor(Math.random() * 3));
+        
+    } else {
+        // After 45 days: maintain at $45
+        newEarnings = 45;
+        newViews = Math.max(dashboardStats.totalViews, 45 * 8);
+        newClicks = Math.max(dashboardStats.totalClicks, 45 * 5);
+    }
+    
+    // Only update if values increased (or it's been a while)
+    const timeSinceLastUpdate = now - (dashboardStats.lastProgressCheck || now);
+    const shouldUpdate = newEarnings > dashboardStats.totalEarnings || 
+                        timeSinceLastUpdate > 60000; // Force update every minute
+    
+    if (shouldUpdate) {
+        const oldEarnings = dashboardStats.totalEarnings;
+        
+        dashboardStats.totalEarnings = Number(newEarnings.toFixed(2));
+        dashboardStats.totalViews = newViews;
+        dashboardStats.totalClicks = newClicks;
+        dashboardStats.conversionRate = dashboardStats.totalViews > 0 ? 
+            ((dashboardStats.totalClicks / dashboardStats.totalViews) * 100) : 0;
+        dashboardStats.lastProgressCheck = now;
+        
+        // Update daily progression tracking
+        const today = new Date().toDateString();
+        const todayIndex = dashboardStats.dailyProgressions.findIndex(p => p.date === today);
+        
+        if (todayIndex >= 0) {
+            dashboardStats.dailyProgressions[todayIndex] = {
+                date: today,
+                earnings: dashboardStats.totalEarnings,
+                views: dashboardStats.totalViews,
+                clicks: dashboardStats.totalClicks
+            };
+        } else {
+            dashboardStats.dailyProgressions.push({
+                date: today,
+                earnings: dashboardStats.totalEarnings,
+                views: dashboardStats.totalViews,
+                clicks: dashboardStats.totalClicks
+            });
+        }
+        
+        saveDashboardStats();
+        updateDashboardDisplay();
+        
+        // Show occasional progress notifications
+        if (newEarnings - oldEarnings >= 0.5) {
+            const earningsIncrease = (newEarnings - oldEarnings).toFixed(2);
+            showProgressNotification(`📈 Earnings increased by $${earningsIncrease}! Total: $${newEarnings.toFixed(2)}`);
+        }
+        
+        // Update charts if available
+        if (typeof updateDashboardStats === 'function') {
+            updateDashboardStats();
+        }
+        
+        console.log(`💰 Progress Update: Day ${daysSinceCopy + 1}, Earnings: $${newEarnings.toFixed(2)}, Views: ${newViews}, Clicks: ${newClicks}`);
+    }
+}
+
+// Show progress notification
+function showProgressNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'progress-notification';
+    notification.innerHTML = `
+        <div class="notification-content">
+            <div class="notification-icon">🚀</div>
+            <div class="notification-text">${message}</div>
+        </div>
+    `;
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 12px;
+        z-index: 10000;
+        box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        transform: translateX(100%);
+        transition: all 0.3s ease;
+        font-weight: 600;
+        font-size: 0.9rem;
+        max-width: 350px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    `;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+    
+    setTimeout(() => {
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            if (document.body.contains(notification)) {
+                document.body.removeChild(notification);
+            }
+        }, 300);
+    }, 5000);
 }
 
 // Initialize payment modal
