@@ -1,187 +1,70 @@
-# AffiliateForge - Static Affiliate Website
+# Getting Started with Create React App
 
-A modern, responsive affiliate marketing website built with vanilla HTML, CSS, and JavaScript. Perfect for promoting affiliate offers and tracking performance.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Features
+## Available Scripts
 
-✅ **Affiliate Stats Start at 0** - All statistics begin from zero for accurate tracking
-✅ **Smart Link Behavior** - Affiliate links don't open in new tab, other dashboard links do
-✅ **Specific Affiliate Link** - Features the required link: https://wwp.ailony.com/redirect-zone/0fcf5c0f
-✅ **Blog with Post Creation** - Ability to create and manage blog posts with SEO optimization
-✅ **Earnings Popup** - Homepage popup promoting $100 earning opportunity
-✅ **Responsive Dashboard** - Real-time analytics and link copying functionality
+In the project directory, you can run:
 
-## Key Improvements Made
+### `npm start`
 
-### 1. Statistics Reset
-- All affiliate stats (views, clicks, earnings) start at 0
-- Local storage tracks actual user interactions
-- Stats increment with real usage
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### 2. Link Behavior (As Requested)
-- **Affiliate links**: Don't open in new tab (same tab navigation)
-- **External dashboard links**: Open in new tab with `target="_blank"`
-- **Internal navigation**: Same tab navigation
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-### 3. Featured Affiliate Link
-- Primary promotion: `https://wwp.ailony.com/redirect-zone/0fcf5c0f`
-- Copy functionality in dashboard
-- Social sharing buttons included
+### `npm test`
 
-### 4. Enhanced Blog System
-- **Create New Posts**: Full-featured blog post creation
-- **SEO Optimization**: 
-  - Meta descriptions and keywords
-  - Structured data markup
-  - Mobile-optimized content
-  - Category organization
-- **Content Management**: Edit, delete, and organize posts
-- **SEO Tips Section**: Built-in guidance for better content
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### 5. Earnings Popup
-- Appears 3 seconds after homepage load
-- Promotes $100 per sale opportunity
-- Direct link to affiliate dashboard
-- Only shows once per session
+### `npm run build`
 
-## File Structure
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-```
-affiliate-webapp/
-├── index.html          # Homepage with hero and tools
-├── dashboard.html      # Affiliate dashboard with analytics
-├── blog.html          # Blog with post creation
-├── styles.css         # Main stylesheet
-├── dashboard.css      # Dashboard-specific styles
-├── blog.css          # Blog-specific styles
-├── script.js         # Main JavaScript functionality
-├── dashboard.js      # Dashboard functionality
-├── blog.js           # Blog management system
-└── README.md         # This file
-```
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-## Deployment Options
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### 1. Cloudflare Pages (Recommended)
-1. Upload files to GitHub repository
-2. Connect Cloudflare Pages to the repository
-3. Deploy as static site
-4. Custom domain support available
+### `npm run eject`
 
-### 2. Netlify
-1. Drag and drop the `affiliate-webapp` folder to Netlify
-2. Automatic HTTPS and CDN
-3. Form handling available
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-### 3. GitHub Pages
-1. Upload files to GitHub repository
-2. Enable GitHub Pages in repository settings
-3. Choose source branch (main/master)
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-### 4. Vercel
-1. Upload to GitHub repository
-2. Import project in Vercel dashboard
-3. Automatic deployments on updates
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-## Local Development
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-```bash
-# Navigate to the project directory
-cd affiliate-webapp
+## Learn More
 
-# Start a local server (Python)
-python -m http.server 8080
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-# Or using Node.js
-npx serve .
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-# Visit http://localhost:8080
-```
+### Code Splitting
 
-## SEO Features
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Meta Tags
-- Comprehensive Open Graph tags
-- Twitter Card support
-- Structured data (Schema.org)
-- Mobile viewport optimization
+### Analyzing the Bundle Size
 
-### Content Optimization
-- Keyword-rich titles and descriptions
-- Internal linking structure
-- Image alt tags
-- Fast loading times
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Blog SEO
-- Category organization
-- Tag system
-- Reading time estimates
-- Author attribution
+### Making a Progressive Web App
 
-## Analytics & Tracking
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Built-in Analytics
-- View tracking
-- Click tracking
-- Conversion rate calculation
-- Earnings estimation
+### Advanced Configuration
 
-### External Integration Ready
-- Google Analytics compatible
-- Facebook Pixel support
-- Custom event tracking
-- A/B testing ready
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-## Customization
+### Deployment
 
-### Colors & Branding
-Edit CSS variables in `styles.css`:
-```css
-:root {
-    --primary-color: #667eea;
-    --secondary-color: #764ba2;
-    --accent-color: #f093fb;
-}
-```
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### Affiliate Links
-Update links in the HTML files or add new ones following the existing pattern.
+### `npm run build` fails to minify
 
-### Content
-- Edit hero text in `index.html`
-- Modify tool descriptions
-- Update blog default posts in `blog.js`
-
-## Performance
-
-- **Optimized Images**: WebP format with fallbacks
-- **Minified CSS**: Production-ready styles
-- **Lazy Loading**: Images load on scroll
-- **Fast Loading**: ~2s load time on average connection
-
-## Browser Support
-
-- Chrome 80+
-- Firefox 75+
-- Safari 13+
-- Edge 80+
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
-## Security
-
-- No server-side code (static files only)
-- HTTPS enforced on deployment
-- CSP headers recommended
-- No sensitive data storage
-
-## License
-
-MIT License - Feel free to use for commercial projects.
-
-## Support
-
-For issues or customization requests, refer to the code comments or create a new issue in the repository.
-
----
-
-**Ready for deployment to Cloudflare Pages or any static hosting provider!**
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
