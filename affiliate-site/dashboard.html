@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earnings Dashboard - Track Your Income Performance | Earn Money Tools</title>
+    <meta name="description" content="Monitor your income performance with real-time analytics, track clicks, views, and earnings from your money-making referrals.">
+    <meta name="keywords" content="earnings dashboard, income tracking, money performance, analytics, online income monitoring">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="dashboard-enhanced.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">📊</span>
+                <span class="logo-text">Earnings Dashboard</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link" target="_blank">Home</a>
+                <a href="index.html#tools" class="nav-link" target="_blank">Tools</a>
+                <a href="blog.html" class="nav-link" target="_blank">Blog</a>
+                <a href="#dashboard" class="nav-link">Dashboard</a>
+                <a href="about.html" class="nav-link" target="_blank">About</a>
+                <a href="index.html#contact" class="nav-link" target="_blank">Contact</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-container">
+        <div class="container">
+            <!-- Header -->
+            <div class="dashboard-header">
+                <h1 class="dashboard-title">Income Earnings Dashboard</h1>
+                <p class="dashboard-subtitle">Track your performance and maximize your earnings</p>
+                <div class="dashboard-actions">
+                    <button id="paymentSettingsBtn" class="payment-settings-btn">
+                        <i class="fas fa-credit-card"></i>
+                        Payment Settings
+                    </button>
+                </div>
+            </div>
+
+            <!-- Affiliate Link CTA -->
+            <div class="affiliate-cta-section">
+                <div class="cta-card">
+                    <div class="cta-content">
+                        <h2 class="cta-title">💰 Earn $100 Per Sale – Promote This Income Link</h2>
+                        <p class="cta-description">
+                            High-converting money making offer with proven results. Join thousands of successful income earners.
+                        </p>
+                        <div class="affiliate-link-container">
+                            <input type="text" 
+                                   id="affiliateLink" 
+                                   class="affiliate-link-input" 
+                                   value="https://wwp.ailony.com/redirect-zone/0fcf5c0f" 
+                                   readonly>
+                            <button id="copyLinkBtn" class="copy-btn">
+                                <i class="fas fa-copy"></i>
+                                Copy
+                            </button>
+                        </div>
+                        <div class="cta-actions">
+                            <a href="https://wwp.ailony.com/redirect-zone/0fcf5c0f" 
+                               class="promote-link-btn" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               onclick="trackClick('affiliate-main')">
+                                🎯 Visit Income Link
+                            </a>
+                            <a href="https://facebook.com/sharer/sharer.php?u=https://wwp.ailony.com/redirect-zone/0fcf5c0f" 
+                               target="_blank" 
+                               class="share-btn facebook">
+                                <i class="fab fa-facebook"></i> Share on Facebook
+                            </a>
+                            <a href="https://twitter.com/intent/tweet?url=https://wwp.ailony.com/redirect-zone/0fcf5c0f&text=Check out this amazing money making opportunity!" 
+                               target="_blank" 
+                               class="share-btn twitter">
+                                <i class="fab fa-twitter"></i> Share on Twitter
+                            </a>
+                        </div>
+                        <p class="cta-note">💡 Tip: Share this link on social media, blogs, or email to start earning income!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon views-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" id="totalViews">0</div>
+                        <div class="stat-label">Total Views</div>
+                        <div class="stat-change positive">+0 today</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon clicks-icon">
+                        <i class="fas fa-mouse-pointer"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" id="totalClicks">0</div>
+                        <div class="stat-label">Total Clicks</div>
+                        <div class="stat-change positive">+0 today</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon earnings-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" id="totalEarnings">$0</div>
+                        <div class="stat-label">Total Earnings</div>
+                        <div class="stat-change positive">+$0 today</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon conversion-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" id="conversionRate">0%</div>
+                        <div class="stat-label">Conversion Rate</div>
+                        <div class="stat-change positive">+0% today</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-section">
+                <div class="chart-card">
+                    <h3 class="chart-title">Performance Overview</h3>
+                    <div class="chart-container">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3 class="chart-title">Earnings Progression</h3>
+                    <div class="chart-container">
+                        <canvas id="earningsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions-section">
+                <h3 class="section-title">Quick Income Actions</h3>
+                <div class="actions-grid">
+                    <a href="https://systeme.io/?sa=sa0197089128c8804219c7954377afdb1278b4602d" class="action-card" target="_blank" onclick="trackClick('systeme-dashboard')">
+                        <div class="action-icon systemeio-gradient">
+                            <i class="fas fa-funnel-dollar"></i>
+                        </div>
+                        <div class="action-content">
+                            <h4>Start Systeme.io</h4>
+                            <p>Free income funnels</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.clickfunnels.com/signup-flow?aff=5da28d74b7e6ee8e5afc46607da4b2b9315e162bab5454de8c0eabb6a26f3fb1" class="action-card" target="_blank" onclick="trackClick('clickfunnels-dashboard')">
+                        <div class="action-icon clickfunnels-gradient">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="action-content">
+                            <h4>Try ClickFunnels</h4>
+                            <p>High-converting sales</p>
+                        </div>
+                    </a>
+
+                    <a href="https://invideo.sjv.io/xLDV53" class="action-card" target="_blank" onclick="trackClick('invideo-dashboard')">
+                        <div class="action-icon invideo-gradient">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="action-content">
+                            <h4>Create Videos</h4>
+                            <p>Income content creation</p>
+                        </div>
+                    </a>
+
+                    <a href="https://one.exnessonelink.com/a/c_m0hssib4xv" class="action-card" target="_blank" onclick="trackClick('exness-dashboard')">
+                        <div class="action-icon exness-gradient">
+                            <i class="fas fa-chart-candlestick"></i>
+                        </div>
+                        <div class="action-content">
+                            <h4>Start Trading</h4>
+                            <p>Forex income potential</p>
+                        </div>
+                    </a>
+
+                    <a href="https://amzn.to/4mv5AHR" class="action-card" target="_blank" onclick="trackClick('amazon-dashboard')">
+                        <div class="action-icon amazon-gradient">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="action-content">
+                            <h4>Amazon Gear</h4>
+                            <p>Creator equipment</p>
+                        </div>
+                    </a>
+
+                    <a href="blog.html" class="action-card" target="_blank">
+                        <div class="action-icon dashboard-gradient">
+                            <i class="fas fa-blog"></i>
+                        </div>
+                        <div class="action-content">
+                            <h4>Read Guides</h4>
+                            <p>Income strategies</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tips Section -->
+            <div class="tips-section">
+                <h3 class="section-title">💡 Income Maximization Tips</h3>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-icon">🎯</div>
+                        <h4>Target Right Audience</h4>
+                        <p>Focus on people actively looking to make money online. Share in entrepreneur groups, financial forums, and business communities.</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">📱</div>
+                        <h4>Use Multiple Platforms</h4>
+                        <p>Share your earning link on Facebook, Twitter, LinkedIn, Instagram, TikTok, and YouTube to maximize reach and income potential.</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">💬</div>
+                        <h4>Personal Recommendations</h4>
+                        <p>Share your personal experience with the tools. Authentic stories about making money convert better than generic promotions.</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">📊</div>
+                        <h4>Track Performance</h4>
+                        <p>Monitor your dashboard regularly to see which sharing methods bring the best income results and double down on what works.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-icon">📊</span>
+                        <span class="logo-text">Earn Money Tools</span>
+                    </div>
+                    <p class="footer-description">Your income tracking headquarters.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Income Tools</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html" target="_blank">Home</a></li>
+                        <li><a href="index.html#tools" target="_blank">Tools</a></li>
+                        <li><a href="blog.html" target="_blank">Blog</a></li>
+                        <li><a href="#dashboard">Dashboard</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#contact" target="_blank">Help Center</a></li>
+                        <li><a href="index.html#contact" target="_blank">Contact</a></li>
+                        <li><a href="privacy-policy.html" target="_blank">Privacy</a></li>
+                        <li><a href="disclaimer.html" target="_blank">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Earn Money Tools Dashboard. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+    <script src="dashboard-enhanced.js"></script>
+</body>
+</html>
