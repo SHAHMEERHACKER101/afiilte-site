@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeNavigation();
     initializeModal();
     initializeStats();
-    initializeProgressAnimation();
     makeAllLinksOpenNewTab();
     
     // Check if we're on dashboard page
@@ -131,9 +130,9 @@ function initializeModal() {
     }
 }
 
-// Initialize stats system - reset to 0 as requested
+// Initialize stats system - keep at 0 for static site
 function initializeStats() {
-    // Reset stats to 0 as requested by user
+    // Keep all stats at 0 for static site deployment
     stats = {
         totalViews: 0,
         totalClicks: 0,
@@ -145,95 +144,40 @@ function initializeStats() {
         lastProgressUpdate: null
     };
     
-    saveStats();
-    
+    // Don't save to localStorage for static site
     // Update displays if elements exist
     updateStatsDisplay();
 }
 
-// Load stats from localStorage
-function loadStats() {
-    const savedStats = localStorage.getItem('earnMoneyToolsStats');
-    if (savedStats) {
-        const parsed = JSON.parse(savedStats);
-        stats = { ...stats, ...parsed };
-    }
-}
-
-// Save stats to localStorage
-function saveStats() {
-    localStorage.setItem('earnMoneyToolsStats', JSON.stringify(stats));
-}
-
-// Update stats display on page
+// Update stats display on page - keep at 0 for dashboard
 function updateStatsDisplay() {
-    // Update hero stats if they exist
-    const heroStats = document.querySelectorAll('.hero-stats .stat-number');
-    if (heroStats.length >= 4) {
-        // Keep the animated counters for the main stats as requested
-        // These will animate from 0 to target values
-        if (heroStats[0].getAttribute('data-target')) {
-            // Let the animation handle these
-            return;
-        }
-        heroStats[0].textContent = stats.totalViews.toLocaleString();
-        heroStats[1].textContent = '25'; // Tools tested (static)
-        heroStats[2].textContent = Math.floor(stats.totalViews * 0.1).toLocaleString(); // Success stories
-        heroStats[3].textContent = `${stats.totalEarnings.toLocaleString()}`; // Revenue
+    // For static site, keep dashboard stats at 0
+    if (window.location.pathname.includes('dashboard.html')) {
+        const totalViewsElement = document.getElementById('totalViews');
+        const totalClicksElement = document.getElementById('totalClicks');
+        const totalEarningsElement = document.getElementById('totalEarnings');
+        const conversionRateElement = document.getElementById('conversionRate');
+        
+        if (totalViewsElement) totalViewsElement.textContent = '0';
+        if (totalClicksElement) totalClicksElement.textContent = '0';
+        if (totalEarningsElement) totalEarningsElement.textContent = '$0';
+        if (conversionRateElement) conversionRateElement.textContent = '0.0%';
+        
+        // Update today's changes to show +0
+        const statChanges = document.querySelectorAll('.stats-grid .stat-change');
+        statChanges.forEach(change => {
+            if (change.textContent.includes('today')) {
+                change.textContent = '+0 today';
+            }
+        });
     }
 }
 
-// Initialize progress animation for hero stats with the requested high values
-function initializeProgressAnimation() {
-    const statNumbers = document.querySelectorAll('.stat-number[data-target]');
-    
-    const animateStats = () => {
-        statNumbers.forEach(stat => {
-            const target = parseInt(stat.getAttribute('data-target'));
-            const current = parseInt(stat.textContent) || 0;
-            const increment = Math.ceil(target / 100); // Slower animation for larger numbers
-            
-            if (current < target) {
-                const nextValue = Math.min(current + increment, target);
-                if (stat.parentElement.querySelector('.stat-label').textContent.includes('Revenue')) {
-                    stat.textContent = nextValue.toLocaleString();
-                } else {
-                    stat.textContent = nextValue.toLocaleString();
-                }
-                setTimeout(() => animateStats(), 50);
-            }
-        });
-    };
-    
-    // Start animation when stats section is visible
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateStats();
-                observer.disconnect();
-            }
-        });
-    });
-    
-    const statsSection = document.querySelector('.hero-stats');
-    if (statsSection) {
-        observer.observe(statsSection);
-    }
-}
-
-// Track clicks on tools/links - start from 0 as requested
+// Track clicks on tools/links - keep stats at 0 for static site
 function trackClick(toolName) {
-    stats.totalClicks++;
-    stats.conversionRate = stats.totalViews > 0 ? ((stats.totalClicks / stats.totalViews) * 100) : 0;
-    
-    // Start earnings from 0 and build gradually
-    const baseEarning = 12.50;
-    stats.totalEarnings = stats.totalClicks * baseEarning;
-    
-    saveStats();
-    updateStatsDisplay();
-    
+    // For static site, don't increment stats
     console.log(`Tracked click on ${toolName}`);
+    // Keep stats at 0
 }
 
 // Enhanced dashboard functionality
@@ -241,20 +185,11 @@ function initializeDashboardEnhancements() {
     // Initialize copy detection
     initializeCopyDetection();
     
-    // Start progression system if link was copied
-    if (stats.linkCopied && stats.firstCopyTime) {
-        startProgressSystem();
-    }
-    
-    // Update dashboard every 30 seconds
-    setInterval(() => {
-        if (stats.progressionStarted) {
-            updateProgressiveStats();
-        }
-    }, 30000);
+    // Update dashboard display to show 0s
+    updateStatsDisplay();
 }
 
-// Initialize copy detection with intelligence
+// Initialize copy detection 
 function initializeCopyDetection() {
     const copyBtn = document.getElementById('copyLinkBtn');
     const affiliateLink = document.getElementById('affiliateLink');
@@ -264,19 +199,7 @@ function initializeCopyDetection() {
             try {
                 await navigator.clipboard.writeText(affiliateLink.value);
                 
-                // Mark as copied and start progression
-                if (!stats.linkCopied) {
-                    stats.linkCopied = true;
-                    stats.firstCopyTime = Date.now();
-                    stats.progressionStarted = true;
-                    stats.lastProgressUpdate = Date.now();
-                    saveStats();
-                    
-                    // Start the progression system
-                    startProgressSystem();
-                }
-                
-                // Visual feedback
+                // Visual feedback only - don't start progression for static site
                 copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
                 copyBtn.classList.add('copied');
                 
@@ -285,22 +208,13 @@ function initializeCopyDetection() {
                     copyBtn.classList.remove('copied');
                 }, 2000);
                 
-                // Show encouraging message
-                showProgressNotification('💰 Link copied! Your earning journey has started!');
+                // Show message
+                showProgressNotification('💰 Link copied! Share it to start earning!');
                 
             } catch (err) {
                 // Fallback for older browsers
                 affiliateLink.select();
                 document.execCommand('copy');
-                
-                if (!stats.linkCopied) {
-                    stats.linkCopied = true;
-                    stats.firstCopyTime = Date.now();
-                    stats.progressionStarted = true;
-                    stats.lastProgressUpdate = Date.now();
-                    saveStats();
-                    startProgressSystem();
-                }
                 
                 copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
                 copyBtn.classList.add('copied');
@@ -311,67 +225,6 @@ function initializeCopyDetection() {
                 }, 2000);
             }
         });
-    }
-}
-
-// Start progression system - removed $45 limit as requested
-function startProgressSystem() {
-    if (!stats.progressionStarted || !stats.firstCopyTime) return;
-    
-    // Calculate realistic progression
-    updateProgressiveStats();
-    
-    // Set up regular updates
-    const progressInterval = setInterval(() => {
-        updateProgressiveStats();
-    }, 60000); // Update every minute for real-time feel
-}
-
-// Update progressive stats intelligently - start from 0 and build
-function updateProgressiveStats() {
-    if (!stats.firstCopyTime) return;
-    
-    const now = Date.now();
-    const timeSinceCopy = now - stats.firstCopyTime;
-    const daysSinceCopy = Math.floor(timeSinceCopy / (24 * 60 * 60 * 1000));
-    const hoursSinceCopy = Math.floor(timeSinceCopy / (60 * 60 * 1000));
-    
-    // Progressive earnings: Start from 0 and build gradually
-    let newEarnings = 0;
-    
-    if (daysSinceCopy === 0) {
-        // First day: gradual increase from $0
-        const hoursProgress = Math.min(hoursSinceCopy / 24, 1);
-        newEarnings = Math.floor(hoursProgress * 100) / 100; // Smooth progression
-    } else if (daysSinceCopy > 0) {
-        // Continuous growth from day 1 onwards
-        newEarnings = daysSinceCopy * 1.5; // $1.50 per day progression
-        
-        // Add intraday progression for current day
-        const currentDayHours = hoursSinceCopy - (daysSinceCopy * 24);
-        const intradayProgress = (currentDayHours / 24) * 1.5;
-        newEarnings += Math.min(intradayProgress, 1.5);
-    }
-    
-    // Update views and clicks to match earnings progression
-    const baseViews = Math.max(stats.totalViews, daysSinceCopy * 3 + Math.floor(Math.random() * 5));
-    const baseClicks = Math.max(stats.totalClicks, Math.floor(newEarnings * 0.8) + Math.floor(Math.random() * 2));
-    
-    // Only update if values increased
-    if (newEarnings > stats.totalEarnings) {
-        stats.totalEarnings = Math.floor(newEarnings * 100) / 100;
-        stats.totalViews = Math.max(stats.totalViews, baseViews);
-        stats.totalClicks = Math.max(stats.totalClicks, baseClicks);
-        stats.conversionRate = stats.totalViews > 0 ? ((stats.totalClicks / stats.totalViews) * 100) : 0;
-        stats.lastProgressUpdate = now;
-        
-        saveStats();
-        updateStatsDisplay();
-        
-        // Update dashboard if on dashboard page
-        if (typeof updateDashboardStats === 'function') {
-            updateDashboardStats();
-        }
     }
 }
 
@@ -423,4 +276,3 @@ if (typeof AOS !== 'undefined') {
 
 // Make functions globally available
 window.trackClick = trackClick;
-window.updateProgressiveStats = updateProgressiveStats;
