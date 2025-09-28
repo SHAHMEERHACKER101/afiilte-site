@@ -47,6 +47,223 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.create-post-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+}
+
+/* Enhanced Modal Styles */
+.create-post-modal {
+    max-width: 900px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.form-help {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 0.5rem;
+    line-height: 1.4;
+}
+
+.form-help strong {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.form-help ul {
+    margin: 0.5rem 0 0 1rem;
+    padding: 0;
+}
+
+.form-help li {
+    margin-bottom: 0.25rem;
+}
+
+.content-textarea {
+    min-height: 400px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* SEO Tips Section */
+.seo-tips-section {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    margin: 4rem 0;
+    border: 1px solid var(--glass-border);
+}
+
+.seo-tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.seo-tip-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.seo-tip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2);
+}
+
+.seo-tip-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.seo-tip-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.seo-tip-description {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+}
+
+/* Enhanced Blog Post Cards */
+.blog-post-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.blog-post-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+}
+
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.action-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--glass-border);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.edit-btn:hover {
+    background: rgba(59, 130, 246, 0.3);
+    border-color: #3b82f6;
+}
+
+.delete-btn:hover {
+    background: rgba(239, 68, 68, 0.3);
+    border-color: #ef4444;
+}
+
+/* Enhanced Categories */
+.category-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-card:hover,
+.category-card.active {
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+/* Empty State Styling */
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.empty-state-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.empty-state-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.empty-state-description {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Notification Styles */
+.notification {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+.notification i {
+    font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .create-post-modal {
+        max-width: 95vw;
+        margin: 2rem auto;
+    }
+    
+    .seo-tips-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-row {
+        flex-direction: column;
+    }
+    
+    .content-textarea {
+        min-height: 300px;
+    }
 }
 
 .create-post-btn:hover {

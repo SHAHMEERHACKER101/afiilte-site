@@ -1,158 +1,62 @@
-# Robots.txt for AffiliateForge
-# Updated: January 2025
-
 User-agent: *
 Allow: /
 
-# Allow all major search engines
-User-agent: Googlebot
-Allow: /
+# Enhanced SEO Configuration for Money Making Tools Site
+# Prioritize high-value money-making content
 
-User-agent: Bingbot  
-Allow: /
+# Main sitemaps
+Sitemap: https://earnmoneytools.com/sitemap.xml
+Sitemap: https://earnmoneytools.com/sitemap-blog.xml
 
-User-agent: Slurp
-Allow: /
+# Allow all important assets and content
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /blog/
+Allow: /tools/
+Allow: /guides/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.webp
 
-User-agent: DuckDuckBot
-Allow: /
-
-User-agent: Baiduspider
-Allow: /
-
-User-agent: YandexBot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: LinkedInBot
-Allow: /
-
-# Disallow admin and sensitive areas (if they exist)
+# Disallow admin and private areas
 Disallow: /admin/
 Disallow: /private/
 Disallow: /temp/
-Disallow: /cache/
-Disallow: /.git/
-Disallow: /node_modules/
+Disallow: /*.bak
+Disallow: /backup/
 
-# Allow CSS, JS, and images for proper rendering
-Allow: /styles.css
-Allow: /dashboard.css
-Allow: /dashboard-enhanced.css
-Allow: /blog.css
-Allow: /about.css
-Allow: /post.css
-Allow: /script.js
-Allow: /dashboard.js
-Allow: /dashboard-enhanced.js
-Allow: /blog.js
-Allow: /blog-enhanced.js
-Allow: /post.js
-Allow: /*.css$
-Allow: /*.js$
-Allow: /*.png$
-Allow: /*.jpg$
-Allow: /*.jpeg$
-Allow: /*.gif$
-Allow: /*.webp$
-Allow: /*.svg$
-Allow: /*.ico$
-
-# Sitemap location
-Sitemap: https://affiliateforge.com/sitemap.xml
-
-# Crawl delay (optional - be respectful)
+# Special rules for search engines
+User-agent: Googlebot
+Allow: /
 Crawl-delay: 1
 
-# Block some aggressive bots (optional)
-User-agent: AhrefsBot
-Crawl-delay: 10
+User-agent: Bingbot  
+Allow: /
+Crawl-delay: 2
 
-User-agent: SemrushBot
-Crawl-delay: 10
-
-User-agent: MJ12bot
-Crawl-delay: 10
-
-# Allow social media crawlers for proper sharing
 User-agent: facebookexternalhit
 Allow: /
-Crawl-delay: 0
 
 User-agent: Twitterbot
 Allow: /
-Crawl-delay: 0
 
-User-agent: LinkedInBot
-Allow: /
-Crawl-delay: 0
-
-# Block some unwanted bots
-User-agent: SiteAuditBot
-Disallow: /
-
+# Block aggressive bots
 User-agent: AhrefsBot
-Disallow: /
-
-User-agent: SemrushBot  
 Disallow: /
 
 User-agent: MJ12bot
 Disallow: /
 
-User-agent: DotBot
+User-agent: SemrushBot
 Disallow: /
 
-# Allow favicons and manifest files
-Allow: /favicon.ico
-Allow: /favicon.png
-Allow: /apple-touch-icon.png
-Allow: /manifest.json
-
-# Special instructions for Google
-# Allow Google to index everything for better SEO
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 0
-
-# Mobile Googlebot
-User-agent: Googlebot-Mobile
-Allow: /
-Crawl-delay: 0
-
-# Google Images
-User-agent: Googlebot-Image
-Allow: /
-Crawl-delay: 0
-
-# Google News (if we add news content)
-User-agent: Googlebot-News
-Allow: /
-Crawl-delay: 0
-
-# Google AdSense
-User-agent: Mediapartners-Google
-Allow: /
-Crawl-delay: 0
-
-# Bing specific
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 0
-
-User-agent: msnbot
-Allow: /
+# Crawl delay for general politeness
 Crawl-delay: 1
 
-# Additional sitemaps (if we create category-specific ones)
-# Sitemap: https://affiliateforge.com/sitemap-blog.xml
-# Sitemap: https://affiliateforge.com/sitemap-tools.xml
-# Sitemap: https://affiliateforge.com/sitemap-reviews.xml
-
-# Host directive (helps with domain canonicalization)
-Host: https://affiliateforge.com
+# Cache directives
+Cache-control: public, max-age=3600
