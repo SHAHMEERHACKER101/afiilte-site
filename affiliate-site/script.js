@@ -183,6 +183,16 @@ function updateStatsDisplay() {
     }
 }
 
+// Helper function to format numbers with K/M suffix
+function formatNumber(num) {
+    if (num >= 1000000) {
+        return '$' + (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+    } else if (num >= 1000) {
+        return (num / 1000).toFixed(0) + 'K';
+    }
+    return num.toString();
+}
+
 // Initialize realtime progressive animation for hero stats with big numbers
 function initializeProgressAnimation() {
     const realtimeStats = document.querySelectorAll('.realtime-stat');
@@ -195,21 +205,22 @@ function initializeProgressAnimation() {
         const increment = parseInt(stat.getAttribute('data-increment'));
         let currentValue = baseValue;
         
-        // Set initial value
-        if (stat.textContent.includes('$')) {
-            stat.textContent = '$' + currentValue.toLocaleString();
+        // Set initial value with K/M formatting
+        const hasDollar = stat.parentElement?.querySelector('.stat-label')?.textContent.includes('Revenue');
+        if (hasDollar) {
+            stat.textContent = formatNumber(currentValue);
         } else {
-            stat.textContent = currentValue.toLocaleString();
+            stat.textContent = formatNumber(currentValue).replace('$', '');
         }
         
         // Start realtime progression
         setInterval(() => {
             currentValue += increment + Math.floor(Math.random() * increment); // Add some randomness
             
-            if (stat.textContent.includes('$')) {
-                stat.textContent = '$' + currentValue.toLocaleString();
+            if (hasDollar) {
+                stat.textContent = formatNumber(currentValue);
             } else {
-                stat.textContent = currentValue.toLocaleString();
+                stat.textContent = formatNumber(currentValue).replace('$', '');
             }
         }, 3000 + Math.random() * 2000); // Update every 3-5 seconds
     });
