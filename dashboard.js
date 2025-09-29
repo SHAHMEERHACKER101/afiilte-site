@@ -25,11 +25,23 @@ function loadDashboardStats() {
     updateDashboardDisplay();
 }
 
+// Helper function to format numbers with K/M suffix
+function formatDashboardNumber(num, includeDollar = false) {
+    if (num >= 1000000) {
+        const formatted = (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+        return includeDollar ? '$' + formatted : formatted;
+    } else if (num >= 1000) {
+        const formatted = (num / 1000).toFixed(0) + 'K';
+        return includeDollar ? '$' + formatted : formatted;
+    }
+    return includeDollar ? '$' + num.toString() : num.toString();
+}
+
 // Update dashboard display
 function updateDashboardDisplay() {
-    document.getElementById('totalViews').textContent = dashboardStats.totalViews.toLocaleString();
-    document.getElementById('totalClicks').textContent = dashboardStats.totalClicks.toLocaleString();
-    document.getElementById('totalEarnings').textContent = `$${dashboardStats.totalEarnings.toLocaleString()}`;
+    document.getElementById('totalViews').textContent = formatDashboardNumber(dashboardStats.totalViews);
+    document.getElementById('totalClicks').textContent = formatDashboardNumber(dashboardStats.totalClicks);
+    document.getElementById('totalEarnings').textContent = formatDashboardNumber(dashboardStats.totalEarnings, true);
     document.getElementById('conversionRate').textContent = `${dashboardStats.conversionRate.toFixed(1)}%`;
 }
 

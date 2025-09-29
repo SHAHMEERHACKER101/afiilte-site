@@ -1,138 +1,187 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
-        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-    
-    <!-- Main Pages -->
-    <url>
-        <loc>https://earnmoneytools.com/</loc>
-        <lastmod>2025-01-20</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>1.0</priority>
-    </url>
-    
-    <url>
-        <loc>https://earnmoneytools.com/blog.html</loc>
-        <lastmod>2025-01-20</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.9</priority>
-    </url>
-    
-    <url>
-        <loc>https://earnmoneytools.com/dashboard.html</loc>
-        <lastmod>2025-01-20</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <!-- Money Making Tool Pages -->
-    <url>
-        <loc>https://earnmoneytools.com/systeme-io-review.html</loc>
-        <lastmod>2025-01-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://earnmoneytools.com/clickfunnels-review.html</loc>
-        <lastmod>2025-01-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://earnmoneytools.com/invideo-review.html</loc>
-        <lastmod>2025-01-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://earnmoneytools.com/exness-trading-guide.html</loc>
-        <lastmod>2025-01-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <!-- Blog Category Pages -->
-    <url>
-        <loc>https://earnmoneytools.com/blog.html?category=tool-reviews</loc>
-        <lastmod>2025-01-20</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    
-    <url>
-        <loc>https://earnmoneytools.com/blog.html?category=growth-tips</loc>
-        <lastmod>2025-01-20</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    
-    <url>
-        <loc>https://earnmoneytools.com/blog.html?category=monetization</loc>
-        <lastmod>2025-01-20</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    
-    <url>
-        <loc>https://earnmoneytools.com/blog.html?category=comparisons</loc>
-        <lastmod>2025-01-20</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    
-    <!-- Money Making Guide Pages -->
-    <url>
-        <loc>https://earnmoneytools.com/make-money-online-guide.html</loc>
-        <lastmod>2025-01-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://earnmoneytools.com/passive-income-strategies.html</loc>
-        <lastmod>2025-01-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://earnmoneytools.com/affiliate-marketing-guide.html</loc>
-        <lastmod>2025-01-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <!-- Support Pages -->
-    <url>
-        <loc>https://earnmoneytools.com/about.html</loc>
-        <lastmod>2025-01-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    
-    <url>
-        <loc>https://earnmoneytools.com/privacy-policy.html</loc>
-        <lastmod>2025-01-20</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.3</priority>
-    </url>
-    
-    <url>
-        <loc>https://earnmoneytools.com/terms-of-service.html</loc>
-        <lastmod>2025-01-20</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.3</priority>
-    </url>
-    
-    <url>
-        <loc>https://earnmoneytools.com/disclaimer.html</loc>
-        <lastmod>2025-01-20</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.3</priority>
-    </url>
-    
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://affiliateforge.com/</loc>
+    <lastmod>2025-01-29T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Main Pages -->
+  <url>
+    <loc>https://affiliateforge.com/index.html</loc>
+    <lastmod>2025-01-29T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://affiliateforge.com/dashboard.html</loc>
+    <lastmod>2025-01-29T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://affiliateforge.com/blog.html</loc>
+    <lastmod>2025-01-29T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://affiliateforge.com/about.html</loc>
+    <lastmod>2025-01-29T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog Posts (High Priority SEO Pages) -->
+  <url>
+    <loc>https://affiliateforge.com/how-to-make-money-online-2025-complete-guide.html</loc>
+    <lastmod>2025-01-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://affiliateforge.com/best-sales-funnel-tools-2025.html</loc>
+    <lastmod>2025-01-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://affiliateforge.com/post-how-to-make-money-online.html</loc>
+    <lastmod>2025-01-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Legal Pages -->
+  <url>
+    <loc>https://affiliateforge.com/privacy-policy.html</loc>
+    <lastmod>2025-01-29T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  
+  <url>
+    <loc>https://affiliateforge.com/terms-of-service.html</loc>
+    <lastmod>2025-01-29T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  
+  <url>
+    <loc>https://affiliateforge.com/disclaimer.html</loc>
+    <lastmod>2025-01-29T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <url>
+    <loc>https://affiliateforge.com/cookie-policy.html</loc>
+    <lastmod>2025-01-29T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Long-tail SEO Keywords (Target Low Competition, High Search Volume) -->
+  <url>
+    <loc>https://affiliateforge.com/how-to-make-money-online</loc>
+    <lastmod>2025-01-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  
+  <url>
+    <loc>https://affiliateforge.com/best-sales-funnel-builder-for-beginners</loc>
+    <lastmod>2025-01-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://affiliateforge.com/systeme-io-vs-clickfunnels</loc>
+    <lastmod>2025-01-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://affiliateforge.com/affiliate-marketing-tools-2025</loc>
+    <lastmod>2025-01-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://affiliateforge.com/passive-income-ideas-for-beginners</loc>
+    <lastmod>2025-01-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://affiliateforge.com/make-100-dollars-per-sale-affiliate</loc>
+    <lastmod>2025-01-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://affiliateforge.com/ai-video-tools-for-content-creators</loc>
+    <lastmod>2025-01-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://affiliateforge.com/forex-trading-for-beginners-zero-deposit</loc>
+    <lastmod>2025-01-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://affiliateforge.com/digital-products-passive-income-2025</loc>
+    <lastmod>2025-01-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://affiliateforge.com/free-sales-funnel-builder</loc>
+    <lastmod>2025-01-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://affiliateforge.com/email-marketing-automation-tools</loc>
+    <lastmod>2025-01-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://affiliateforge.com/online-business-ideas-low-startup-cost</loc>
+    <lastmod>2025-01-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://affiliateforge.com/high-ticket-affiliate-programs</loc>
+    <lastmod>2025-01-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
 </urlset>
