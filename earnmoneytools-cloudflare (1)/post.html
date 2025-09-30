@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Blog Post - AffiliateForge</title>
+    <meta name="description" id="pageDescription" content="Read the latest insights on business tools and affiliate marketing strategies">
+    <meta name="keywords" id="pageKeywords" content="blog post, business tools, affiliate marketing, online business">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" id="ogTitle" content="Blog Post - AffiliateForge">
+    <meta property="og:description" id="ogDescription" content="Read the latest insights on business tools and affiliate marketing">
+    <meta property="og:type" content="article">
+    <meta property="og:url" id="ogUrl" content="">
+    <meta property="og:image" id="ogImage" content="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" id="twitterTitle" content="Blog Post - AffiliateForge">
+    <meta name="twitter:description" id="twitterDescription" content="Read the latest insights on business tools and affiliate marketing">
+    <meta name="twitter:image" id="twitterImage" content="">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="post.css">
+    
+    <!-- Monetag Vignette Ad -->
+    <script>(function(s){s.dataset.zone='9954109',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json" id="structuredData">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Blog Post",
+      "description": "Read the latest insights on business tools and affiliate marketing",
+      "author": {
+        "@type": "Person",
+        "name": "AffiliateForge Team"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AffiliateForge"
+      },
+      "datePublished": "",
+      "dateModified": ""
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">📖</span>
+                <span class="logo-text">Post</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#tools" class="nav-link">Tools</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Post Container -->
+    <div class="post-container">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="index.html" class="breadcrumb-link">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="blog.html" class="breadcrumb-link">Blog</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-current" id="breadcrumbTitle">Post</span>
+            </nav>
+
+            <!-- Post Content -->
+            <article class="post-article" id="postArticle">
+                <div class="post-loading">
+                    <div class="loading-spinner"></div>
+                    <p>Loading post...</p>
+                </div>
+            </article>
+
+            <!-- Related Posts -->
+            <section class="related-posts" id="relatedPosts" style="display: none;">
+                <h3 class="section-title">Related Posts</h3>
+                <div class="related-posts-grid" id="relatedPostsGrid">
+                    <!-- Related posts will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Comments Section -->
+            <section class="comments-section">
+                <h3 class="section-title">Join the Discussion</h3>
+                <div class="comments-form">
+                    <div class="form-group">
+                        <textarea 
+                            placeholder="Share your thoughts about this post..." 
+                            class="comment-textarea"
+                            id="commentText"
+                            rows="4"
+                        ></textarea>
+                    </div>
+                    <div class="form-row">
+                        <input 
+                            type="text" 
+                            placeholder="Your name" 
+                            class="form-input"
+                            id="commentName"
+                        />
+                        <input 
+                            type="email" 
+                            placeholder="Your email" 
+                            class="form-input"
+                            id="commentEmail"
+                        />
+                    </div>
+                    <button class="comment-submit-btn" id="submitComment">
+                        <i class="fas fa-paper-plane"></i>
+                        Post Comment
+                    </button>
+                </div>
+                
+                <div class="comments-list" id="commentsList">
+                    <div class="no-comments">
+                        <div class="no-comments-icon">💬</div>
+                        <p>Be the first to share your thoughts on this post!</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Newsletter CTA -->
+            <section class="newsletter-cta">
+                <div class="newsletter-card">
+                    <h3 class="newsletter-title">Never Miss an Update</h3>
+                    <p class="newsletter-description">
+                        Get the latest tool reviews, business strategies, and affiliate opportunities delivered to your inbox.
+                    </p>
+                    <div class="newsletter-form">
+                        <input
+                            type="email"
+                            placeholder="Enter your email"
+                            class="newsletter-input"
+                            id="newsletterEmail"
+                        />
+                        <button class="newsletter-btn" id="subscribeBtn">
+                            Subscribe
+                        </button>
+                    </div>
+                    <div class="newsletter-benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            Weekly tool reviews
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            Exclusive strategies
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            Early access to deals
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-icon">📖</span>
+                        <span class="logo-text">AffiliateForge</span>
+                    </div>
+                    <p class="footer-description">Your source for expert tool reviews and business growth strategies.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Popular Posts</h4>
+                    <ul class="footer-links" id="popularPosts">
+                        <li><a href="#" onclick="loadPost('1')">Systeme.io vs ClickFunnels Comparison</a></li>
+                        <li><a href="#" onclick="loadPost('2')">Best Free Funnel Builders</a></li>
+                        <li><a href="#" onclick="loadPost('3')">Top Forex Trading Apps</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blog.html">All Posts</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 AffiliateForge Blog. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+    
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+    <script src="blog.js"></script>
+    <script src="post.js"></script>
+</body>
+</html>
